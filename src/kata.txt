@@ -1,0 +1,34 @@
+function generateHangmanDisplayLetters(wordToGuess) {
+    let count = 0;
+
+    const wordToGuessSplit = wordToGuess.split(""); // ['m', 'e', 'l', 'o', 'n']
+
+    let guessedLetters = ["e", "o", "d", "c", "s", "t", "a", "n", "f"];
+
+    let correctlyGuessedLetters = [];
+
+    for (guessedLetter of guessedLetters) {
+      if (wordToGuessSplit.includes(guessedLetter)) {
+        correctlyGuessedLetters.push(guessedLetter);
+      } else {
+        count++;
+      }
+    }
+
+    // correctlyGuessedLetters = ["e", "o"]
+
+    let displayWord = [];
+
+    for (letter of wordToGuessSplit) {
+      if (correctlyGuessedLetters.includes(letter)) {
+        displayWord.push(letter)
+      } else {
+        displayWord.push('_')
+      }
+    }
+
+    return displayWord + ' , errors: ' + count;
+
+  }
+
+  console.log(generateHangmanDisplayLetters('spaghetti'));
