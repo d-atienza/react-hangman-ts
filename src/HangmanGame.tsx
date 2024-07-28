@@ -10,6 +10,8 @@ function HangmanGame() {
     "s",
   ]);
 
+  const mistakeCount = countMistakes(selectedLetters, wordToGuess);
+
   function storeSelectedLetter(inputLetter: string) {
     const copyArray = [...selectedLetters, inputLetter];
     setSelectedLetters(copyArray);
@@ -28,9 +30,10 @@ function HangmanGame() {
   ));
 
   return (
-    <div className="HangmanGame">
+    <div className="hangmanGame">
       <div className="wordToGuess">{wordToGuess}</div>
       <div className="keyboard-display">{keyboard}</div>
+      <div>{mistakeCount}</div>
     </div>
   );
 }
@@ -38,5 +41,17 @@ function HangmanGame() {
 const originalAlphabet = "abcdefghijklmnopqrstuvwxyz";
 
 const alphabet = originalAlphabet.split("");
+
+function countMistakes(selectedLetters: string[], wordToGuess: string) {
+  let count = 0;
+
+  for (const letter of selectedLetters) {
+    if (!wordToGuess.includes(letter)) {
+      count++;
+    }
+  }
+
+  return count;
+}
 
 export default HangmanGame;
