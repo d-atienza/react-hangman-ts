@@ -51,14 +51,19 @@ p, h1, h2, h3, h4, h5, h6 {
   border: 0.1rem dashed black;
 }
 
+.keyboard-display {
+  display:flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  justify-content: center;
+}
+
 .keyboard-letter {
   border: 1px solid black;
   border-radius: 5px;
-  box-shadow: 5px 5px 5px rgb(61, 60, 59);
-  padding: 0.375rem;
-  margin: 0.25rem;
-  width: 2rem;
-  height: 2rem;
-  text-align: center;
-  display: inline-block;
+  /* box-shadow: 5px 5px 5px rgb(61, 60, 59);  */
+  width: 1.5rem;
+  height: 1.5rem;
+  display: grid;
+  place-items: center;
 }
