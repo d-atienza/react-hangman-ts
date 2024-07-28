@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 function HangmanGame() {
-  const wordToGuess = ["m", "e", "l", "_", "n"];
+  const wordToGuess = "melon";
   const [selectedLetters, setSelectedLetters] = useState<string[]>([
     "c",
     "a",
@@ -17,18 +17,19 @@ function HangmanGame() {
   }
 
   const keyboard = alphabet.map((letter) => (
-    <span
+    <button
       key={letter}
       className="keyboard-letter"
+      disabled={selectedLetters.includes(letter)}
       onClick={() => storeSelectedLetter(letter)}
     >
       {letter}
-    </span>
+    </button>
   ));
 
   return (
     <div className="HangmanGame">
-      <div className="guessed-word">{wordToGuess}</div>
+      <div className="wordToGuess">{wordToGuess}</div>
       <div className="keyboard-display">{keyboard}</div>
     </div>
   );
